@@ -1,0 +1,159 @@
+#include <stdio.h>
+#include <conio.h>
+#define max_lenght 100 
+void main()
+{
+
+   int data[max_lenght];
+   int length = 0;
+   int valu;
+   int input;
+   int index;
+   int count=0,c2=-1;
+   
+   system("cls");
+   do
+   {
+
+      // printf("Arob Tailots\n");
+      // printf("------------\n");
+      printf("MENU\n");
+      printf("-----------\n");
+      printf("1.add\n");
+      printf("2.insert\n");
+      printf("3.Edit\n");
+      printf("4.Delete\n");
+      printf("5.disply\n");
+      printf("6.Clear\n");
+      printf("7.search\n");
+      printf("0.Exit\n");
+      printf("-----------\n");
+
+      printf("Enter A manu :");
+      scanf("%d",&input);
+      system("cls");
+      printf("------result------End\n");
+      printf("you heve a selected manu no :%d\n", input);
+      system("cls");
+      switch (input)
+      {
+
+      case 0:
+         break;
+      case 1:
+         // add operation
+         printf("enter Enteger valu:");
+         scanf("%d",&valu);
+         data[length] = valu;
+         printf("%d inserted at index %d\n", valu, length);
+         length++;
+         break;
+         //inser operation
+      case 2:
+      printf("enter Enteger valu:");
+         scanf("%d",&valu);
+         printf("Enter at index between 0 - %d :",length-1);
+         scanf("%d",&index);
+
+         for (int i = length; i >index-1; i--)
+         {
+            data[i] = data[i];
+         }
+         data[index] = valu;
+         length++;
+         printf(" %d inserted at index %d \n",valu,index);
+
+         break;
+//edit operatio
+      case 3:
+         printf("Enter at index between 0 - %d :",length-1);
+         scanf("%d",&index);
+         printf("enter new Enteger valu:");
+         scanf("%d",&valu); 
+
+         data[index] = valu;
+         printf("%d updated at index %d\n",valu,index);
+
+         break;
+//Delete operatio
+      case 4:
+         printf("Enter at index between 0 - %d :",length-1);
+         scanf("%d",&index);
+         int dv=data[index];
+for (int i = index; i < length; i++)
+{
+   data[i]=data[i +1];
+}
+data[length=index];
+length++;
+printf(" %d Delete at index %d \n",dv,index-1);
+printf(" Data %d \n",dv);
+
+
+         break;
+
+      case 5:
+         // disply operation
+         if (length == 0)
+         {
+         printf("There is no Data\n");
+         break;
+         }
+         else{
+
+         printf("DATA :\t");
+         for (int i = 0; i < length; i++)
+         {
+            printf(" %d\t", data[i]);
+         }
+         printf("\n");
+         break;
+
+
+         }
+         
+         // cleared operation
+      case 6:
+         printf("Data cleared...");
+         for (int i = 0; i < length; i++)
+         {
+            data[i] = 0;
+         }
+         length = 0;
+printf("\n");
+         break;
+   case 7:
+
+printf("Enter at index between 0 - %d :",length-1);
+         scanf("%d",&index);
+
+for (int i = index; i < length; i++)
+{
+   if (valu==data[i])
+   {
+     count++;
+   }
+   
+  
+   
+}
+printf("search number %d\n",count);
+
+break;
+
+
+      default:
+
+         printf("invalid input\n");
+         break;
+      
+     
+       system("cls");
+         
+      }
+   } while (input != 0);
+
+
+
+
+}
